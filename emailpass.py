@@ -34,7 +34,7 @@ def register ():
                 while True :
                     
                     flag = -1
-                    password = maskpass.askpass(mask="")   
+                    password = maskpass.askpass(mask="*")   
                     if (len(password)<=8):
                         flag = -1
                         break
@@ -96,32 +96,36 @@ def register ():
     print ("************************************************************")
     print ("\n")
 
+def login () :
+    print ("Enter your credentials to log in : ")
 
-print ("Enter your credentials to log in : ")
-
-while True:
-    
-    
-    log = input ("Email :  ")
-    pwd = input ("Password : ")
-    hashed_pwd= hashlib.sha256(pwd.encode()).hexdigest()
-    compare = log+"---"+hashed_pwd
+    while True:
+        
+        
+        log = input ("Email :  ")
+        pwd = maskpass.askpass(mask="*")   
+        hashed_pwd= hashlib.sha256(pwd.encode()).hexdigest()
+        compare = log+"---"+hashed_pwd
 
 
-    file1 = open(r"enregistrement.txt","r")
-    x = 0 
-    for logins in file1 :
-        if (compare == logins.strip()) : 
-            x = 1
+        file1 = open(r"enregistrement.txt","r")
+        x = 0 
+        for logins in file1 :
+            if (compare == logins.strip()) : 
+                x = 1
+            else :
+                x = 0
+                
+                
+        if x == 1 :
+            print ("CONGRATULATIONS! You have successfuly signed in! ")
+            break
         else :
-            x = 0
+            print ("Incorrect Email or Password, please try again!")
             
             
-    if x == 1 :
-        print ("CONGRATULATIONS! You have successfuly signed in! ")
-        break
-    else :
-        print ("Incorrect Email or Password, please try again!")
+register()
+login()
             
     
 
