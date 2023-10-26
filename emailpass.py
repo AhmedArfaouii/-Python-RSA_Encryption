@@ -5,6 +5,8 @@ import random
 import array
 import string
 
+#test_comment
+
 file1 = open(r"enregistrement.txt","a")
 
 regex = re.compile(r'([A-Za-z0-9]+[.-_])*[A-Za-z0-9]+@[A-Za-z0-9-]+(\.[A-Z|a-z]{2,})+')
