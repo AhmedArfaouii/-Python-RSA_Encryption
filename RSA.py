@@ -1,6 +1,8 @@
 from cryptography.hazmat.backends import default_backend  
 from cryptography.hazmat.primitives import serialization  
 from cryptography.hazmat.primitives.asymmetric import rsa  
+from cryptography.hazmat.primitives.asymmetric import padding
+from cryptography.hazmat.primitives import hashes
 from Crypto.Cipher import PKCS1_OAEP
 from Crypto.PublicKey import RSA
 
@@ -55,5 +57,59 @@ def message_decrypt () :
     cipher = PKCS1_OAEP.new(key)
     plaintext = cipher.decrypt(ciphertext)
     print (plaintext.decode("utf-8"))
+
+
+
+def sign_message():
+    
+    message = input ("Enter the message to sign : ")
+    
+    with open("private.pem", "rb") as key_file:
+        private_key = serialization.load_pem_private_key(
+            key_file.read(),
+            password=None,
+            backend=default_backend()
+        )
+
+    
+    signature = private_key.sign(
+        message.encode('utf-8'),  # Assuming the message is in UTF-8 encoding
+        padding.PSS(
+            mgf=padding.MGF1(hashes.SHA256()),
+            salt_length=padding.PSS.MAX_LENGTH
+        ),
+        hashes.SHA256()
+    )
+    f = open ("signature.txt", "wb")
+    f.write(signature)
+    f.close
+    return signature
+
+
+def verify_signature(message):
+    with open("public.pem", "rb") as key_file:
+        public_key = serialization.load_pem_public_key(
+            key_file.read(),
+            backend=default_backend()
+        )
+        
+    with open("signature.txt", "rb") as file:
+        signature = file.read()
+
+    
+    try:
+        public_key.verify(
+            signature,
+            message.encode('utf-8'),  
+            padding.PSS(
+                mgf=padding.MGF1(hashes.SHA256()),
+                salt_length=padding.PSS.MAX_LENGTH
+            ),
+            hashes.SHA256()
+        )
+        print ("Signature is valid!")  
+    except:
+        print ("Signature is invalid!")  
+
 
 
