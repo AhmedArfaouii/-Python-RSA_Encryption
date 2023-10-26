@@ -2,7 +2,6 @@ import hashlib
 import re 
 import maskpass
 import random
-import array
 import string
 
 def register ():

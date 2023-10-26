@@ -73,7 +73,7 @@ def sign_message():
 
     
     signature = private_key.sign(
-        message.encode('utf-8'),  # Assuming the message is in UTF-8 encoding
+        message.encode('utf-8'),  
         padding.PSS(
             mgf=padding.MGF1(hashes.SHA256()),
             salt_length=padding.PSS.MAX_LENGTH
@@ -83,7 +83,6 @@ def sign_message():
     f = open ("signature.txt", "wb")
     f.write(signature)
     f.close
-    return signature
 
 
 def verify_signature(message):
@@ -110,6 +109,5 @@ def verify_signature(message):
         print ("Signature is valid!")  
     except:
         print ("Signature is invalid!")  
-
 
 
