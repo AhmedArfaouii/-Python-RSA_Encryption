@@ -2,3 +2,4 @@ public.pem
 word_bcrypted.txt
 word_to_hash.txt
 private.pem
+word_hashed_256.txt
