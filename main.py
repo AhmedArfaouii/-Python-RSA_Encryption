@@ -4,8 +4,14 @@ from Hash import salt_bcrypt
 from Hash import dictionary_attack
 from emailpass import register
 from emailpass import login
-import RSA
-import Certificate
+from RSA import generate_key
+from RSA import message_encrypt
+from RSA import message_decrypt
+from RSA import sign_message
+from RSA import verify_signature
+from Certificate import cert_gen
+from Certificate import encrypt_w_cert
+from Certificate import decrypt_w_cert
 
 
 def big_menu():
@@ -43,6 +49,17 @@ def hash_menu():
 def rsa_menu():
     print("RSA Menu")
     print("1 - Generate key")
+    print("2 - Encrypt a message with RSA")
+    print("3 - Decrypt your message")
+    print("4- Sign a message with RSA")
+    print("5- Verify the message signature")
+    print("0 - Back to Login Menu")
+    
+def certif_menu():
+    print("Ceritificate Menu")
+    print("1 - Generate Autosigned Certificate with RSA")
+    print("2 - Encrypt a message with your Certificate")
+    print("3 - Decrypt the message")
     print("0 - Back to Login Menu")
 
 def main():
@@ -98,14 +115,23 @@ def main():
                             print("Invalid choice. Please try again.")
 
                 elif login_choice == '2':
+                    
                     while True:
+                        
                         rsa_menu()
+                        
                         rsa_choice = input("Enter your choice: ")
 
                         if rsa_choice == '1':
-                            # Call your function for generating RSA key
-                            print("Generate RSA key function")
-
+                            generate_key()
+                        if rsa_choice == '2':
+                            message_encrypt()
+                        if rsa_choice == '3':
+                            message_decrypt()
+                        if rsa_choice == '4':
+                            sign_message()
+                        if rsa_choice == '5':
+                            verify_signature()
                         elif rsa_choice == '0':
                             break
 
@@ -116,11 +142,15 @@ def main():
                     
                     while True:
                          
+                        certif_menu()
                         certif_choice = input("Enter your choice: ")
 
                         if certif_choice == '1':
-                            # Call your function for generating RSA key
-                            break
+                            cert_gen()
+                        if certif_choice == '2':
+                            encrypt_w_cert()
+                        if certif_choice == '3':
+                            decrypt_w_cert()
 
                         elif certif_choice == '0':
                             break
