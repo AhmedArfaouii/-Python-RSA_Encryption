@@ -16,6 +16,13 @@ def save_file(filename, content):
   
  
 def generate_key (): 
+    
+    print ("----- Generating your keys, please wait -----")
+    delay = 3
+    for i in range(delay):
+        dashes = "-" * (i + 1)
+        print(dashes)
+        time.sleep(1)
     private_key = rsa.generate_private_key( 
         public_exponent=65537,  
         key_size=4096,  
@@ -39,7 +46,7 @@ def generate_key ():
     save_file("public.pem", pem) 
     print ("----- Your keys are now generated and saved ! -----")
     print ("----- Please check the files Private.pem and Public.pem -----")
-    time.sleep()(2)
+    time.sleep()(1)
 
 def message_encrypt () :
     
@@ -52,27 +59,41 @@ def message_encrypt () :
     f= open ("encrypted_message.txt","wb")
     f.write(ciphertext)
     f.close()
+    print ("----- ENCRYPTING -----")
+    delay = 2
+    for i in range(delay):
+        dashes = "-" * (i + 1)
+        print(dashes)
+        time.sleep(1)
+                
     print ("----- Your message is now encrypted with RSA and saved ! -----")
     print ("----- Please check the file encrypted_message.txt -----")
-    time.sleep(2)
+    time.sleep(1)
     
 
 
 
 def message_decrypt () : 
-
+    
+    print ("----- DECRYPTING -----")
+    delay = 3
+    for i in range(delay):
+        dashes = "-" * (i + 1)
+        print(dashes)
+        time.sleep(1)
     key = RSA.import_key(open('private.pem').read())
     with open("encrypted_message.txt", "rb") as file:
         ciphertext = file.read()
     cipher = PKCS1_OAEP.new(key)
     plaintext = cipher.decrypt(ciphertext)
-    print (plaintext.decode("utf-8"))
+    print (f"----- Your message is : {plaintext.decode('utf-8')} -----")
+    time.sleep(2)
 
 
 
 def sign_message():
     
-    message = input ("Enter the message to sign : ")
+    message = input ("Enter the message to sign: ")
     
     with open("private.pem", "rb") as key_file:
         private_key = serialization.load_pem_private_key(
@@ -93,11 +114,20 @@ def sign_message():
     f = open ("signature.txt", "wb")
     f.write(signature)
     f.close
+    print ("----- Your message is now SIGNED with RSA and saved ! -----")
+    print ("----- Please check the file signature.txt -----")
+    time.sleep(1)
 
 
 def verify_signature():
     
-    message = input ("Enter the message that was signed : ")
+    message = input ("Enter the message that was signed: ")
+    
+    delay = 2
+    for i in range(delay):
+        dashes = "-" * (i + 1)
+        print(dashes)
+        time.sleep(1)
     
     with open("public.pem", "rb") as key_file:
         public_key = serialization.load_pem_public_key(
@@ -108,8 +138,6 @@ def verify_signature():
     with open("signature.txt", "rb") as file:
         signature = file.read()
 
-
-    
     try:
         public_key.verify(
             signature,
@@ -120,7 +148,9 @@ def verify_signature():
             ),
             hashes.SHA256()
         )
-        print ("Signature is valid!")  
+        print ("----- Signature is valid! ------")  
+        time.sleep(1)
     except:
-        print ("Signature is invalid!")
+        print ("------ Signature is INVALID! :( ------")
+        time.sleep(1)
 
