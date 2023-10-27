@@ -60,7 +60,11 @@ def main():
 
         if choice == '1':
             while True:
-
+                delay = 1
+                for i in range(delay):
+                    dashes = "-" * (i + 1)
+                    print(dashes)
+                    time.sleep(1)
                 register()
                 
                 break
@@ -69,14 +73,25 @@ def main():
 
         elif choice == '2':
             while True:
+                delay = 1
+                for i in range(delay):
+                    dashes = "-" * (i + 1)
+                    print(dashes)
+                    time.sleep(1)
+                    
                 login()
-                
                 big_menu()
                 login_choice = input("Enter your choice: ")
 
                 if login_choice == '1':
                     
                     while True:
+                        
+                        delay = 1
+                        for i in range(delay):
+                            dashes = "-" * (i + 1)
+                            print(dashes)
+                            time.sleep(1)
                         
                         hash_menu()
                         
@@ -101,11 +116,16 @@ def main():
                             hash_menu()
 
                         else:
-                            print("Invalid choice. Please try again.")
+                            print("----- Invalid choice. Please try again. -----")
 
                 elif login_choice == '2':
                     
                     while True:
+                        delay = 1
+                        for i in range(delay):
+                            dashes = "-" * (i + 1)
+                            print(dashes)
+                            time.sleep(1)
                         
                         rsa_menu()
                         
@@ -125,12 +145,16 @@ def main():
                             break
 
                         else:
-                            print("Invalid choice. Please try again.")
+                            print("----- Invalid choice. Please try again. -----")
                             
                 elif login_choice == '3':
                     
                     while True:
-                         
+                        delay = 1
+                        for i in range(delay):
+                            dashes = "-" * (i + 1)
+                            print(dashes)
+                            time.sleep(1)
                         certif_menu()
                         certif_choice = input("Enter your choice: ")
 
@@ -145,21 +169,26 @@ def main():
                             break
 
                         else:
-                            print("Invalid choice. Please try again.")
+                            print("----- Invalid choice. Please try again. -----")
                         
 
                 elif login_choice == '0':
                     main_menu()
 
                 else:
-                    print("Invalid choice. Please try again.")
+                    print("----- Invalid choice. Please try again. ------")
 
         elif choice == '0':
-            print("Exiting the program. Goodbye!")
+            print("----- Exiting the program. Goodbye! ----- ")
+            delay = 3
+            for i in range(delay):
+                dashes = "-" * (i + 1)
+                print(dashes)
+                time.sleep(1)
             break
 
         else:
-            print("Invalid choice. Please try again.")
+            print("----- Invalid choice. Please try again. -----")
 
 if __name__ == '__main__':
     main()
