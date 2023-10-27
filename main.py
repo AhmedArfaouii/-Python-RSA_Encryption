@@ -12,55 +12,46 @@ from RSA import verify_signature
 from Certificate import cert_gen
 from Certificate import encrypt_w_cert
 from Certificate import decrypt_w_cert
+import time
 
 
 def big_menu():
-    print("Welcome to the functionalities menu !")
-    print ("Please choose which function to try !")
-    print("1 - Hash")
-    print("2 - RSA")
-    print("3 - Certificate")
-    print("0 - Exit")
+    print("******* Welcome to the functionalities menu ! *******")
+    print("******* Please choose which function to try ! *******")
+    print("******* 1 - Hash *******")
+    print("******* 2 - RSA *******")
+    print("******* 3 - Certificate *******")
+    print("******* 0 - Exit *******")
     
 def main_menu():
-    print("Main Menu")
-    print("1 - Sign up")
-    print("2 - Login")
-    print("0 - Exit")
-
-def sign_up_menu():
-    print("Sign Up Menu")
-    print("a - Register")
-    print("0 - Back to Main Menu")
-
-def login_menu():
-    print("Login Menu")
-    print("a - Enter credentials")
-    print("0 - Back to Main Menu")
+    print("******* Main Menu *******")
+    print("******* 1 - Sign up *******")
+    print("******* 2 - Login *******")
+    print("******* 0 - Exit *******")
 
 def hash_menu():
-    print("Hash Menu")
-    print("1 - Give word to hash")
-    print("2 - Hash it with 256")
-    print("3 - Hash it with salt")
-    print("4-  Dictionary attack on your word")
-    print("0 - Back to Login Menu")
+    print("******* Hash Menu *******")
+    print("******* 1 - Give word to hash *******")
+    print("******* 2 - Hash it with 256 *******")
+    print("******* 3 - Hash it with salt *******")
+    print("******* 4-  Dictionary attack on your word *******")
+    print("******* 0 - Back to Login Menu *******")
 
 def rsa_menu():
-    print("RSA Menu")
-    print("1 - Generate key")
-    print("2 - Encrypt a message with RSA")
-    print("3 - Decrypt your message")
-    print("4- Sign a message with RSA")
-    print("5- Verify the message signature")
-    print("0 - Back to Login Menu")
+    print("******* RSA Menu *******")
+    print("******* 1 - Generate key *******")
+    print("******* 2 - Encrypt a message with RSA *******")
+    print("******* 3 - Decrypt your message *******")
+    print("******* 4- Sign a message with RSA *******")
+    print("******* 5- Verify the message signature *******")
+    print("******* 0 - Back to Login Menu *******")
     
 def certif_menu():
-    print("Ceritificate Menu")
-    print("1 - Generate Autosigned Certificate with RSA")
-    print("2 - Encrypt a message with your Certificate")
-    print("3 - Decrypt the message")
-    print("0 - Back to Login Menu")
+    print("******* Ceritificate Menu *******")
+    print("******* 1 - Generate Autosigned Certificate with RSA *******")
+    print("******* 2 - Encrypt a message with your Certificate *******")
+    print("******* 3 - Decrypt the message *******")
+    print("******* 0 - Back to Login Menu *******")
 
 def main():
     while True:
@@ -71,6 +62,7 @@ def main():
             while True:
 
                 register()
+                
                 break
                 
         
@@ -78,6 +70,7 @@ def main():
         elif choice == '2':
             while True:
                 login()
+                
                 big_menu()
                 login_choice = input("Enter your choice: ")
 
