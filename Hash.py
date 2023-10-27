@@ -32,7 +32,7 @@ def salt_bcrypt() :
 
 def dictionary_attack():
     #abacination0 un mot dans mon password_dict
-        with open("password_dictionary", 'r') as dict_file:
+        with open("password_dictionary",'r') as dict_file:
             words = dict_file.read().splitlines()
 
         with open("word_hashed_256", 'r') as hashed_file:
