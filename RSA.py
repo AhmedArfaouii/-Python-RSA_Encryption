@@ -48,6 +48,9 @@ def message_encrypt () :
     f= open ("encrypted_message.txt","wb")
     f.write(ciphertext)
     f.close()
+    
+
+
 
 def message_decrypt () : 
 
@@ -95,6 +98,7 @@ def verify_signature(message):
     with open("signature.txt", "rb") as file:
         signature = file.read()
 
+
     
     try:
         public_key.verify(
@@ -108,6 +112,7 @@ def verify_signature(message):
         )
         print ("Signature is valid!")  
     except:
-        print ("Signature is invalid!")  
+        print ("Signature is invalid!")
+        
 
 

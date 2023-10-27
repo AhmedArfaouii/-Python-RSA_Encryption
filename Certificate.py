@@ -16,10 +16,13 @@ def cert_gen(
     CERT_FILE="selfsigned.crt"):
     #can look at generated file using openssl:
     #openssl x509 -inform pem -in selfsigned.crt -noout -text
-    # create a key pair
+    
+    
     k = crypto.PKey()
     k.generate_key(crypto.TYPE_RSA, 4096)
-    # create a self-signed cert
+    
+    
+    
     cert = crypto.X509()
     cert.get_subject().C = countryName
     cert.get_subject().O = organizationName
