@@ -81,8 +81,11 @@ def main():
                 login_choice = input("Enter your choice: ")
 
                 if login_choice == '1':
+                    
                     while True:
+                        
                         hash_menu()
+                        
                         hash_choice = input("Enter your choice: ")
 
                         if hash_choice == '1':
