@@ -69,18 +69,10 @@ def main():
 
         if choice == '1':
             while True:
-                sign_up_menu()
-                signup_choice = input("Enter your choice: ")
 
-                if signup_choice == 'a':
-                    register()
+                register()
+                main_menu()
         
-
-                elif signup_choice == '0':
-                    break
-
-                else:
-                    print("Invalid choice. Please try again.")
 
         elif choice == '2':
             while True:

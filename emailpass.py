@@ -22,9 +22,10 @@ def register ():
     print ("Choose password creation method : ")
     print ("1- Provide your own password. ( > 8 characters, requires uppercase and symbols.)")
     print ("2 - Generate a random password.")
+    choice = input(" Please choose method 1 or 2 : ")
         
     while True:
-        choice = input("Choice : ")
+        
         match choice :
             case '1':
 
@@ -51,16 +52,15 @@ def register ():
                         break
                     else:
                         flag = 0
-                        print("Password : Validated. ")
-                        print ("CONGRATULATIONS! You are now registred! ")
+                        print("Password Validated. ")
                         break
                 if flag == 0 :
         
-                        print ("Your password is : " , password)
-                        
+                        print ("CONGRATULATIONS! You are now registred! ")
+                        break                      
                 else :
                         print ("***Password doesn't much requirements (8 characters + Uppercase/Symbols)! ***")
-                break
+                
             case '2':
                 
 
@@ -123,6 +123,7 @@ def login () :
             print ("Incorrect Email or Password, please try again!")
             
             
+register()
 
 
 
