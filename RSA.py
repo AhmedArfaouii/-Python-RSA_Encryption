@@ -113,6 +113,4 @@ def verify_signature(message):
         print ("Signature is valid!")  
     except:
         print ("Signature is invalid!")
-        
-
 
