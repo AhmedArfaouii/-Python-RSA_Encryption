@@ -123,10 +123,6 @@ def login () :
             print ("Incorrect Email or Password, please try again!")
             
             
-register()
-login()
-            
-    
 
 
 

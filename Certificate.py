@@ -14,8 +14,6 @@ def cert_gen(
     validityEndInSeconds=10*365*24*60*60,
     KEY_FILE = "private.key",
     CERT_FILE="selfsigned.crt"):
-    #can look at generated file using openssl:
-    #openssl x509 -inform pem -in selfsigned.crt -noout -text
     
     
     k = crypto.PKey()
@@ -39,6 +37,8 @@ def cert_gen(
     with open(KEY_FILE, "wt") as f:
         f.write(crypto.dump_privatekey(crypto.FILETYPE_PEM, k).decode("utf-8"))
 
+
+
 def encrypt_w_cert () :
     with open("selfsigned.crt","rb") as cert_file:
         certificate = x509.load_pem_x509_certificate(cert_file.read(), default_backend())
@@ -57,6 +57,9 @@ def encrypt_w_cert () :
     f =open ("encrypted_w_cert.txt","wb")
     f.write(encrypted_message)
     f.close
+    
+    
+    
     
 def decrypt_w_cert():
 

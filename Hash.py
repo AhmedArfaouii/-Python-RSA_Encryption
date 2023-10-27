@@ -49,5 +49,3 @@ def dictionary_attack():
                 
             
 
-
-dictionary_attack()
