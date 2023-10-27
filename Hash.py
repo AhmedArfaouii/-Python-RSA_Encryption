@@ -1,6 +1,5 @@
 import hashlib
 import bcrypt
-import re 
 import maskpass
 
 def create_word ():
@@ -14,7 +13,7 @@ def sha256 ():
     word = f.read()
     print (word)
     hashed_word = hashlib.sha256(word.encode()).hexdigest()
-    f1 = open ("word_hashed_256","wb")
+    f1 = open ("word_hashed_256.txt","w")
     f1.write(hashed_word)
     f1.close()
     
@@ -32,17 +31,23 @@ def salt_bcrypt() :
 
 def dictionary_attack():
     #abacination0 un mot dans mon password_dict
-        with open("password_dictionary",'r') as dict_file:
+        x=0
+        with open("password_dictionary.txt",'r') as dict_file:
             words = dict_file.read().splitlines()
 
-        with open("word_hashed_256", 'r') as hashed_file:
+        with open("word_hashed_256.txt", 'r') as hashed_file:
             hashed_password = hashed_file.read().strip()
 
         for word in words:
             hashed_word = hashlib.sha256(word.encode()).hexdigest()
             if hashed_word == hashed_password:
                 print (f"Password found: {word}")
+                x=1
+            
+        if x == 0 :
+            print ("Password not found :( )")
+                
+            
 
-        print ("Password not found")
 
 dictionary_attack()
