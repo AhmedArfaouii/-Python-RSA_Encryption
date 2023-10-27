@@ -4,3 +4,8 @@ word_to_hash.txt
 private.pem
 word_hashed_256.txt
 enregistrement.txt
+private.key
+signature.txt
+encrypted_w_cert.txt
+selfsigned.crt
+encrypted_message.txt
