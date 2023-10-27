@@ -3,6 +3,7 @@ from cryptography.hazmat.primitives import serialization, hashes
 from cryptography.hazmat.primitives.asymmetric import padding
 from cryptography.hazmat.backends import default_backend  
 from cryptography import x509
+import time
 
 def cert_gen(
     emailAddress="ahmed.arfaouii11@gmail.com",
@@ -36,7 +37,13 @@ def cert_gen(
         f.write(crypto.dump_certificate(crypto.FILETYPE_PEM, cert).decode("utf-8"))
     with open(KEY_FILE, "wt") as f:
         f.write(crypto.dump_privatekey(crypto.FILETYPE_PEM, k).decode("utf-8"))
-
+    print ("----- Your certification is created -----")
+    print ("----- Please check the file selfsigned.crt -----")
+    delay = 3
+    for i in range(delay):
+        dashes = "-" * (i + 1)
+        print(dashes)
+        time.sleep(1)
 
 
 def encrypt_w_cert () :
@@ -57,7 +64,21 @@ def encrypt_w_cert () :
     f =open ("encrypted_w_cert.txt","wb")
     f.write(encrypted_message)
     f.close
+    print ("\n")
+    print ("----- Your message is being encrypted -----")
+    delay = 3
+    for i in range(delay):
+        dashes = "-" * (i + 1)
+        print(dashes)
+        time.sleep(1)
     
+    print ("----- Your message has been encrypted with the selfsigned ceritifcation -----")
+    print ("----- Please check the file encrypted_w_cert.txt ------")
+    delay = 3
+    for i in range(delay):
+        dashes = "-" * (i + 1)
+        print(dashes)
+        time.sleep(1)
     
     
     
@@ -81,6 +102,18 @@ def decrypt_w_cert():
             label=None
         )
     )
-
-    print(decrypted_message.decode())
+    print ("---- DECRYPTING YOUR MESSAGE NOW USING SELFSIGNED CERT ----")
+    print ("\n")
+    print ("---- Please wait. -----")
+    delay = 3
+    for i in range(delay):
+        dashes = "-" * (i + 1)
+        print(dashes)
+        time.sleep(1)
+    print(f"----- Your message is : {decrypted_message.decode()} -----")
+    delay = 2
+    for i in range(delay):
+        dashes = "-" * (i + 1)
+        print(dashes)
+        time.sleep(1)
     

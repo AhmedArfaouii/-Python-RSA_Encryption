@@ -9,7 +9,12 @@ def create_word ():
    f.write (word)
    f.close
    print ("----- Your word is now created and saved ! -----")
-   time.sleep()
+   print ("\n")
+   delay = 2
+   for i in range(delay):
+        dashes = "-" * (i + 1)
+        print(dashes)
+        time.sleep(1)
 
 def sha256 ():
     f = open ("word_to_hash.txt","r")
@@ -19,9 +24,14 @@ def sha256 ():
     f1 = open ("word_hashed_256.txt","w")
     f1.write(hashed_word)
     f1.close()
+    print ("\n")
     print ("----- Your word is now hashed with sha256 and saved ! -----")
     print ("----- Please check the file word_hashed_256.txt -----")
-    time.sleep()
+    delay = 2
+    for i in range(delay):
+        dashes = "-" * (i + 1)
+        print(dashes)
+        time.sleep(1)
     
 def salt_bcrypt() :
     
@@ -33,14 +43,28 @@ def salt_bcrypt() :
     f1 = open ("word_bcrypted.txt", "wb")
     f1.write (hashed)
     f1.close
+    print ("\n")
     print ("----- Your word is now hashed with a salt and saved ! -----")
     print ("----- Please check the file word_bcrypt.txt -----")
-    time.sleep()(2)
+    
+    delay = 2
+    for i in range(delay):
+        dashes = "-" * (i + 1)
+        print(dashes)
+        time.sleep(1)
     
     
 
 
 def dictionary_attack():
+    print ("\n")
+    print ("---- Please wait while we search for your password ----- ")
+    delay = 5
+    for i in range(delay):
+        dashes = "-" * (i + 1)
+        print(dashes)
+        time.sleep(1)
+        
     #abacination0 un mot dans mon password_dict
         x=0
         with open("password_dictionary.txt",'r') as dict_file:
@@ -53,12 +77,20 @@ def dictionary_attack():
             hashed_word = hashlib.sha256(word.encode()).hexdigest()
             if hashed_word == hashed_password:
                 print (f"----- I FOUND THE PASSWORD ! : {word}  ------ ")
-                time.sleep()
+                delay = 3
+                for i in range(delay):
+                    dashes = "-" * (i + 1)
+                    print(dashes)
+                    time.sleep(1)
                 x=1
             
         if x == 0 :
             print (" ------ Password not found :( ------ ")
-            time.sleep()
+            delay = 2
+            for i in range(delay):
+                dashes = "-" * (i + 1)
+                print(dashes)
+                time.sleep(1)
                 
             
 

@@ -5,6 +5,7 @@ from cryptography.hazmat.primitives.asymmetric import padding
 from cryptography.hazmat.primitives import hashes
 from Crypto.Cipher import PKCS1_OAEP
 from Crypto.PublicKey import RSA
+import time
 
 
 
@@ -35,7 +36,10 @@ def generate_key ():
         encoding=serialization.Encoding.PEM,  
         format=serialization.PublicFormat.SubjectPublicKeyInfo  
     )  
-    save_file("public.pem", pem)  
+    save_file("public.pem", pem) 
+    print ("----- Your keys are now generated and saved ! -----")
+    print ("----- Please check the files Private.pem and Public.pem -----")
+    time.sleep()(2)
 
 def message_encrypt () :
     
@@ -48,6 +52,9 @@ def message_encrypt () :
     f= open ("encrypted_message.txt","wb")
     f.write(ciphertext)
     f.close()
+    print ("----- Your message is now encrypted with RSA and saved ! -----")
+    print ("----- Please check the file encrypted_message.txt -----")
+    time.sleep(2)
     
 
 
