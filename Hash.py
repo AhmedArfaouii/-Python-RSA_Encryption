@@ -59,6 +59,7 @@ def salt_bcrypt() :
 def dictionary_attack():
     print ("\n")
     print ("---- Please wait while we search for your password ----- ")
+    print ("\n")
     delay = 5
     for i in range(delay):
         dashes = "-" * (i + 1)
@@ -77,6 +78,7 @@ def dictionary_attack():
             hashed_word = hashlib.sha256(word.encode()).hexdigest()
             if hashed_word == hashed_password:
                 print (f"----- I FOUND THE PASSWORD ! : {word}  ------ ")
+                print ("\n")
                 delay = 3
                 for i in range(delay):
                     dashes = "-" * (i + 1)
@@ -86,6 +88,7 @@ def dictionary_attack():
             
         if x == 0 :
             print (" ------ Password not found :( ------ ")
+            print ("\n")
             delay = 2
             for i in range(delay):
                 dashes = "-" * (i + 1)

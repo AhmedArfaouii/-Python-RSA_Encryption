@@ -3,6 +3,7 @@ import re
 import maskpass
 import random
 import string
+import time
 
 def register ():
 
@@ -15,12 +16,12 @@ def register ():
         if re.fullmatch(regex,email) :
             break
         else :
-            print ("This is an invalid email, please try again!")
+            print ("------ This is an invalid email, please try again! ------")
         
 
 
-    print ("Choose password creation method : ")
-    print ("1- Provide your own password. ( > 8 characters, requires uppercase and symbols.)")
+    print ("----- Choose password creation method -----")
+    print ("1 - Provide your own password. ")
     print ("2 - Generate a random password.")
     choice = input(" Please choose method 1 or 2 : ")
         
@@ -52,14 +53,22 @@ def register ():
                         break
                     else:
                         flag = 0
-                        print("Password Validated. ")
+                        delay = 2
+                        for i in range(delay):
+                            dashes = "-" * (i + 1)
+                            print(dashes)
+                            time.sleep(1)
+                        
                         break
                 if flag == 0 :
         
-                        print ("CONGRATULATIONS! You are now registred! ")
+                        print ("------ CONGRATULATIONS! You are now registred! ------")
+                        print ("\n")
+                        time.sleep(1)
                         break                      
                 else :
-                        print ("***Password doesn't much requirements (8 characters + Uppercase/Symbols)! ***")
+
+                        print ("*** Password doesn't match requirements (8 characters,UPPERCASE,Symbols)! ***")
                 
             case '2':
                 
@@ -70,19 +79,22 @@ def register ():
                 one = random.choice(string.digits) + random.choice(string.ascii_letters) +random.choice(SYMB)
                 two = random.choice(string.digits) + random.choice(string.ascii_letters) +random.choice(SYMB)
                 first_password = one + two 
-
-                # print ("Unshuffled password : ", first_password)
                 gen_password = list(first_password)
-                # print ("Listed_Unshuffled_Password : ", gen_password)
                 random.shuffle(gen_password)
-                # print ("Listed_Shuffled_Password : " ,gen_password)
                 str1= ""
                 password= str1.join(gen_password)
-                print("Your generated password is : " , str1.join(gen_password), "Please make sure to save it somewhere safe.")
-
+                print ("----- Generating your password, please wait ----- ")
+                delay = 3
+                for i in range(delay):
+                    dashes = "-" * (i + 1)
+                    print(dashes)
+                    time.sleep(1)
+                print(" ** Your generated password is : " , str1.join(gen_password), "Please make sure to save it somewhere safe. **")
+                time.sleep(2)
                 break
+            
             case default :
-                print ("Please type 1 or 2 to make a choice! ")
+                print ("** Please type 1 or 2 to make a choice! ** ")
                 
     hashed_password= hashlib.sha256(password.encode()).hexdigest()
     file1.write(email)
@@ -91,17 +103,20 @@ def register ():
     file1.write("\n")
     file1.close()
     print ("************************************************************")
-    print ("Your credentials are now hashed and saved on the local file.")
+    print ("----- Your credentials are now hashed and saved. ------")
     print ("************************************************************")
     print ("\n")
+    time.sleep(2)
 
 def login () :
-    print ("Enter your credentials to log in : ")
+    print ("----- Enter your credentials to log in! ----- ")
+    print ("\n")
+    
 
     while True:
         
         
-        log = input ("Email :  ")
+        log = input ("Enter your Email:  ")
         pwd = maskpass.askpass(mask="*")   
         hashed_pwd= hashlib.sha256(pwd.encode()).hexdigest()
         compare = log+"---"+hashed_pwd
@@ -117,12 +132,30 @@ def login () :
                 
                 
         if x == 1 :
+            print ("----- Logging in, please wait -----")
+            delay = 2
+            for i in range(delay):
+                dashes = "-" * (i + 1)
+                print(dashes)
+                time.sleep(1)
             print ("\n")
             print ("************************************************************")
             print ("CONGRATULATIONS! You have successfuly signed in! ")
+            print ("************************************************************")
+            print ("\n")
+            time.sleep(1)
+
+            
             break
         else :
-            print ("Incorrect Email or Password, please try again!")
+            print ("----- Logging in, please wait -----")
+            delay = 2
+            for i in range(delay):
+                dashes = "-" * (i + 1)
+                print(dashes)
+                time.sleep(1)
+            print ("----- INCORRECT Email or Password, please try again!----- ")
+            time.sleep(1)
             
             
 
