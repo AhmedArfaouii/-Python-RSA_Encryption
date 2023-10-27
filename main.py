@@ -71,7 +71,8 @@ def main():
             while True:
 
                 register()
-                main_menu()
+                break
+                
         
 
         elif choice == '2':
@@ -104,7 +105,7 @@ def main():
                             dictionary_attack()
 
                         elif hash_choice == '0':
-                            break
+                            hash_menu()
 
                         else:
                             print("Invalid choice. Please try again.")
@@ -119,13 +120,13 @@ def main():
 
                         if rsa_choice == '1':
                             generate_key()
-                        if rsa_choice == '2':
+                        elif rsa_choice == '2':
                             message_encrypt()
-                        if rsa_choice == '3':
+                        elif rsa_choice == '3':
                             message_decrypt()
-                        if rsa_choice == '4':
+                        elif rsa_choice == '4':
                             sign_message()
-                        if rsa_choice == '5':
+                        elif rsa_choice == '5':
                             verify_signature()
                         elif rsa_choice == '0':
                             break
@@ -142,9 +143,9 @@ def main():
 
                         if certif_choice == '1':
                             cert_gen()
-                        if certif_choice == '2':
+                        elif certif_choice == '2':
                             encrypt_w_cert()
-                        if certif_choice == '3':
+                        elif certif_choice == '3':
                             decrypt_w_cert()
 
                         elif certif_choice == '0':
@@ -155,7 +156,7 @@ def main():
                         
 
                 elif login_choice == '0':
-                    break
+                    main_menu()
 
                 else:
                     print("Invalid choice. Please try again.")

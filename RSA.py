@@ -88,7 +88,10 @@ def sign_message():
     f.close
 
 
-def verify_signature(message):
+def verify_signature():
+    
+    message = input ("Enter the message that was signed : ")
+    
     with open("public.pem", "rb") as key_file:
         public_key = serialization.load_pem_public_key(
             key_file.read(),
