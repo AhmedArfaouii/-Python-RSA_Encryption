@@ -51,7 +51,9 @@ def encrypt_w_cert () :
         certificate = x509.load_pem_x509_certificate(cert_file.read(), default_backend())
     public_key = certificate.public_key()
     
-    message = b"Your message to encrypt"
+    
+    message1 = input ("Enter your message here: ")
+    message = message1.encode()
 
     encrypted_message = public_key.encrypt(
         message,

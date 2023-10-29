@@ -46,7 +46,7 @@ def generate_key ():
     save_file("public.pem", pem) 
     print ("----- Your keys are now generated and saved ! -----")
     print ("----- Please check the files Private.pem and Public.pem -----")
-    time.sleep()(1)
+    time.sleep(2)
 
 def message_encrypt () :
     

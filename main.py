@@ -21,7 +21,7 @@ def big_menu():
     print("******* 1 - Hash *******")
     print("******* 2 - RSA *******")
     print("******* 3 - Certificate *******")
-    print("******* 0 - Exit *******")
+    print("******* 0 - Previous Menu *******")
     
 def main_menu():
     print("******* Main Menu *******")
@@ -35,7 +35,7 @@ def hash_menu():
     print("******* 2 - Hash it with 256 *******")
     print("******* 3 - Hash it with salt *******")
     print("******* 4-  Dictionary attack on your word *******")
-    print("******* 0 - Back to Login Menu *******")
+    print("******* 0 - Back to Previous Menu *******")
 
 def rsa_menu():
     print("******* RSA Menu *******")
@@ -44,14 +44,14 @@ def rsa_menu():
     print("******* 3 - Decrypt your message *******")
     print("******* 4- Sign a message with RSA *******")
     print("******* 5- Verify the message signature *******")
-    print("******* 0 - Back to Login Menu *******")
+    print("******* 0 - Back to Previous Menu *******")
     
 def certif_menu():
     print("******* Ceritificate Menu *******")
     print("******* 1 - Generate Autosigned Certificate with RSA *******")
     print("******* 2 - Encrypt a message with your Certificate *******")
     print("******* 3 - Decrypt the message *******")
-    print("******* 0 - Back to Login Menu *******")
+    print("******* 0 - Back to Previous Menu *******")
 
 def main():
     while True:
@@ -113,7 +113,7 @@ def main():
                             dictionary_attack()
 
                         elif hash_choice == '0':
-                            hash_menu()
+                            break
 
                         else:
                             print("----- Invalid choice. Please try again. -----")
@@ -142,6 +142,7 @@ def main():
                         elif rsa_choice == '5':
                             verify_signature()
                         elif rsa_choice == '0':
+                            
                             break
 
                         else:
@@ -173,7 +174,7 @@ def main():
                         
 
                 elif login_choice == '0':
-                    main_menu()
+                    break
 
                 else:
                     print("----- Invalid choice. Please try again. ------")

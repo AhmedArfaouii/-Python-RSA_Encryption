@@ -19,7 +19,6 @@ def create_word ():
 def sha256 ():
     f = open ("word_to_hash.txt","r")
     word = f.read()
-    print (word)
     hashed_word = hashlib.sha256(word.encode()).hexdigest()
     f1 = open ("word_hashed_256.txt","w")
     f1.write(hashed_word)
@@ -60,7 +59,7 @@ def dictionary_attack():
     print ("\n")
     print ("---- Please wait while we search for your password ----- ")
     print ("\n")
-    delay = 5
+    delay = 3
     for i in range(delay):
         dashes = "-" * (i + 1)
         print(dashes)
@@ -85,6 +84,7 @@ def dictionary_attack():
                     print(dashes)
                     time.sleep(1)
                 x=1
+                break
             
         if x == 0 :
             print (" ------ Password not found :( ------ ")
@@ -94,6 +94,7 @@ def dictionary_attack():
                 dashes = "-" * (i + 1)
                 print(dashes)
                 time.sleep(1)
+            break
                 
             
 

@@ -68,7 +68,7 @@ def register ():
                         break                      
                 else :
 
-                        print ("*** Password doesn't match requirements (8 characters,UPPERCASE,Symbols)! ***")
+                        print ("*** Password doesn't match requirements (8 characters,UPPERCASE,Symbols _@$)! ***")
                 
             case '2':
                 
@@ -127,8 +127,7 @@ def login () :
         for logins in file1 :
             if (compare == logins.strip()) : 
                 x = 1
-            else :
-                x = 0
+
                 
                 
         if x == 1 :
